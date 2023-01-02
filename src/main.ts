@@ -1,4 +1,6 @@
+import * as THREE from 'three';
 import {sample} from './sample';
+import {drawLine} from './drawline'
 
 const main = () => {
   try {
@@ -10,7 +12,12 @@ const main = () => {
     throw new Error('Failed initializing WebGL')
   }
 
-  sample()
+  const renderer = new THREE.WebGLRenderer();
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  document.body.appendChild(renderer.domElement)
+
+  // sample(renderer)
+  drawLine(renderer)
 }
 
 window.onload = main;
