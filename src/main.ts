@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 import {sample} from './sample';
+import {cube} from './cube';
 import {drawLine} from './drawline'
 
 const main = () => {
@@ -17,7 +18,19 @@ const main = () => {
   document.body.appendChild(renderer.domElement)
 
   // sample(renderer)
-  drawLine(renderer)
+  // drawLine(renderer)
+  cube(renderer)
+
+  addEventListener("resize", () => {
+    resize();
+  })
+
+  const resize = () => {
+    renderer.setSize(window.innerWidth, innerHeight)
+    renderer.setPixelRatio(window.devicePixelRatio)
+  }
 }
+
+
 
 window.onload = main;
